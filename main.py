@@ -4,10 +4,11 @@ from stats import chars_dict_to_sorted_list, get_chars_dict, get_num_words
 
 
 def main():
-    if len(sys.argv) > 1:
-        path_to_book = sys.argv[1]
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
     else:
-        path_to_book = "books/frankeinstein.txt"
+        path_to_book = sys.argv[1]
     book_text = get_book_text(path_to_book)
     words_num = get_num_words(book_text)
     chars_dict = get_chars_dict(book_text)
